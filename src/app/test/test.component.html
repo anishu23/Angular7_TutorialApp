@@ -1,0 +1,33 @@
+<!-- Examples of interpolation -->
+<h1>
+  Welcome {{name}}.
+</h1>
+<h2>{{2+2}}</h2> 
+<h2>{{"Welcome " + name}}</h2>
+<h2>{{name.length}}</h2>
+<h2>{{name.toUpperCase()}}</h2>
+<h2>{{greetUser()}}</h2>
+<h2>{{url}}</h2>
+
+<!-- Property Binding -->
+<input [id]="myId" type="text" value="Inspect Id">
+ 
+<!-- using interpolation -->
+<!-- limitation: can only use string -->
+<!-- using alternate syntax -->
+ <input bind-disabled="true" id="{{myId}}" type="text" value="Id using interpolation">
+
+ <h2 class="text-success">Angular is Awesome!</h2>
+ <!-- using class binding -->
+ <h2 [class]="successClass">Angular is Awesome!</h2>
+ <!-- Conditional Class binding : Single class application only -->
+ <h2 [class.text-danger]="hasError">Angular is Awesome!</h2>
+ <h2 [ngClass]="messageClasses">Mulitple Conditonal Class Binding</h2>
+
+<!-- Style binding -->
+<h2 [style.color]="hasError ? 'red' : 'green'">Style binding</h2>
+<h2 [style.color]="highlightColor">Style binding 2</h2>
+<h2 [ngStyle]="titleStyles">Style binding 3</h2>
+
+<button (click)="onClickMethod($event)">Greet</button>
+<h2>greet = {{greeting}}</h2>
