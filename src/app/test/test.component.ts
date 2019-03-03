@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { template } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-test',
@@ -43,9 +44,30 @@ export class TestComponent implements OnInit {
     this.greeting = "Welcome " + this.name + "!"
   }
 
+  // Template Referencing - To bind html to class (One way)
+  logMessage(myInput) {
+    // Use the template reference variable as a parameter
+    console.log(myInput.value);
+  }
+
+  // Two way binding
+  public twoBindingVariabe = "";
+
+  //ngIf
+  ngIfVariable = true;
+  toggle() {
+    this.ngIfVariable ? this.ngIfVariable = false : this.ngIfVariable = true;
+  }
+
+  public TestTwoDataFromParent = "Hello World. This come from parent data.";
+  public dataTwo = "Second data coming from parent.";
+  //ngFor
+  public colors = ['red', 'blue', 'green', 'yellow'];
+
+  // Component interaction data - from child component
+  public messageFromChild = "";
+  
   constructor() { }
-
-
 
   ngOnInit() {
   }
@@ -53,4 +75,5 @@ export class TestComponent implements OnInit {
   greetUser() {
     return "Hello " + this.name + "!";
   }
+
 }

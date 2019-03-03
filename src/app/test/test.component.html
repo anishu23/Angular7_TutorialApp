@@ -9,6 +9,13 @@
 <h2>{{greetUser()}}</h2>
 <h2>{{url}}</h2>
 
+<!-- 
+  Property binding 
+  [] ==> html to class
+  {} ==> class to html
+  () ==> event binding - html to class 
+-->
+
 <!-- Property Binding -->
 <input [id]="myId" type="text" value="Inspect Id">
  
@@ -30,4 +37,54 @@
 <h2 [ngStyle]="titleStyles">Style binding 3</h2>
 
 <button (click)="onClickMethod($event)">Greet</button>
+<button (click)="greeting = 'Hi Anish'">Greet Direct</button>
 <h2>greet = {{greeting}}</h2>
+
+<!-- Template Reference Variable - defined using # (hash) -->
+<input #myInput type="text">
+<button (click)="logMessage(myInput)">Log</button>
+
+<!-- Two way binding using ngModel -->
+<h3>Two way binding using ngModel</h3>
+<input [(ngModel)]="twoBindingVariabe" type="text"> {{twoBindingVariabe}}
+
+<!-- Structural Directives -->
+<!-- ngIf Directive -->
+<h3 *ngIf="ngIfVariable; else elseBlock">ngif Directive - Conditonal rendering - When {{ngIfVariable}}</h3>
+<ng-template #elseBlock>
+  <h3>ngif Directive - Conditonal rendering - When {{ngIfVariable}} using elseBlock and ng-template</h3>
+</ng-template>
+<button (click)="toggle()">Toggle</button>
+<!-- ngIf Alternate Syntax -->
+<div *ngIf="ngIfVariable; then thenBlock; else elseAltBlock"></div>
+<ng-template #thenBlock>
+  <p>If yes then display this.</p>
+</ng-template>
+<ng-template #elseAltBlock>
+  <p>If no, then i will not display this.</p>
+</ng-template>
+
+<!-- ngSwitch Directive -->
+<select [(ngModel)]="color">
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+  <option value="hello">no Color</option>
+</select>
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'red'">You picked Red Color.</div>
+  <div *ngSwitchCase="'blue'">You picked Blue Color.</div>
+  <div *ngSwitchCase="'green'">You picked Green Color.</div>
+  <div *ngSwitchDefault>Pick a Color</div>
+</div>
+
+<!-- ngFor Directive -->
+<h4>Using ngFor = index.color -- First -- Last -- Odd -- Last</h4>
+<div *ngFor="let color of colors; index as i; first as f; last as l; odd as o; even as e">
+  <h4>Using ngFor = {{i}}.{{color}} -- {{f}} -- {{l}} -- {{o}} -- {{e}}</h4>
+</div>
+
+<p>Data from Child Test Two Component = {{messageFromChild}}</p>
+<app-test-two (childEvent)="messageFromChild=$event" [parentDataVariable]="TestTwoDataFromParent" [dataTwoFromParent]="dataTwo"></app-test-two>
+
+

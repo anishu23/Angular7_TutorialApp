@@ -1,0 +1,42 @@
+<h2>Component Interaction</h2>
+<p>
+  {{parentDataVariable}}
+</p>
+<p>
+  Alternate Syntax using alias - {{aliasDataTwo}}
+</p>
+
+<button (click)="fireEvent()">Fire Child Event</button>   
+
+<!-- Pipe Operations -->
+<h2>Pipe Operations</h2>
+<h3>Untouched == {{ name }}</h3>
+<h3>lowercase pipe == {{ name | lowercase }}</h3>
+<h3>uppercase pipe == {{ name | uppercase }}</h3>
+<h3>titlecase pipe == {{ name | titlecase }}</h3>
+<h3>slice pipe == {{ name | slice:5:12 }}</h3>
+<h3>json pipe == {{ person | json }}</h3>
+
+<h3>number pipe == {{ 5.678 | number:'1.2-3' }} (max_int.min_after_decia=mal-max)</h3>
+<h3>number pipe == {{ 5.678 | number:'3.4-5' }} (appends zeroes)</h3>
+<h3>number pipe == {{ 5.678 | number:'3.1-2' }} (rounds off)</h3>
+
+<h3>percent pipe == {{ 0.25 | percent }}</h3>
+<h3>currency default pipe == {{ 0.25 | currency }}</h3>
+<h3>currency custom pipe == {{ 0.25 | currency:'INR' }}</h3>
+<h3>currency code pipe == {{ 0.25 | currency:'INR':'code' }}</h3>
+
+<h3>date pipe == {{ date }}</h3>
+<h3>date short pipe == {{ date | date:'short' }}</h3>
+<h3>date shortDate pipe == {{ date | date:'shortDate' }}</h3>
+<h3>date shortTime pipe == {{ date | date:'shortTime' }}</h3>
+<h3>date medium pipe == {{ date | date:'medium' }}</h3>
+<h3>date mediumDate pipe == {{ date | date:'mediumDate' }}</h3>
+<h3>date mediumTime pipe == {{ date | date:'mediumTime' }}</h3>
+<h3>date long pipe == {{ date | date:'long' }}</h3>
+<h3>date longDate pipe == {{ date | date:'longDate' }}</h3>
+<h3>date longTime pipe == {{ date | date:'longTime' }}</h3>
+
+
+
+
